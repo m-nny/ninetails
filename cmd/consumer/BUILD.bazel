@@ -7,7 +7,9 @@ go_library(
     visibility = ["//visibility:private"],
     deps = [
         "//internal/task",
+        "//proto/triton/client",
         "@com_github_hibiken_asynq//:asynq",
+        "@org_golang_google_grpc//:go_default_library",
     ],
 )
 

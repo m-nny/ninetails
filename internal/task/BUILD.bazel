@@ -2,8 +2,16 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "task",
-    srcs = ["sum.go"],
+    srcs = [
+        "infer.go",
+        "sum.go",
+    ],
     importpath = "github.com/m-nny/ninetails/internal/task",
     visibility = ["//:__subpackages__"],
-    deps = ["@com_github_hibiken_asynq//:asynq"],
+    deps = [
+        "//internal/utils",
+        "//proto/triton/client",
+        "@com_github_hibiken_asynq//:asynq",
+        "@org_golang_x_exp//slices",
+    ],
 )

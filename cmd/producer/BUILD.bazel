@@ -13,6 +13,7 @@ go_library(
 
 go_binary(
     name = "producer",
+    data = ["//data:cifar10_train"],
     embed = [":producer_lib"],
     visibility = ["//visibility:public"],
 )

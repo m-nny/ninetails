@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/miniconda
+{
+	"name": "Tensorflow Dev container",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/iterative/features/nvtop:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	},
+	"runArgs": [
+		"--network=host",
+		"--gpus=all",
+		"--shm-size=1g",
+		"--ulimit",
+		"memlock=-1"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"files.watcherExclude": {
+					"**/bazel-*/**": true
+				},
+				"search.exclude": {
+					"**/bazel-*/**": true
+				}
+			},
+			"extensions": [
+				"ms-python.python",
+				"golang.go"
+			]
+		}
+	},
+	"mounts": [
+		// "source=tensorflow_cache,target=/home/vscode/.cache/bazel/"
+	],
+	"remoteUser": "vscode",
+	"workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}"
+}

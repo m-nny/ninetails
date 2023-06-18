@@ -1,0 +1,14 @@
+ name: "cifar_dali_preprocess"
+ backend: "dali"
+ max_batch_size: 256
+ input { 
+        name: "image_jpg"
+        data_type: TYPE_UINT8
+        dims: [ -1 ]
+}
+ 
+output {
+    name: "image_tensor"
+    data_type: TYPE_UINT8
+    dims: [ 32, 32, 3 ]
+}

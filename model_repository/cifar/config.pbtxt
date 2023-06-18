@@ -1,0 +1,26 @@
+name: "cifar"
+backend: "onnxruntime"
+max_batch_size: 64
+input {
+  name: "inputs"
+  data_type: TYPE_UINT8
+  dims: -1
+  dims: -1
+  dims: 3
+}
+output {
+  name: "logits"
+  data_type: TYPE_FP32
+  dims: 10
+}
+output {
+  name: "probs"
+  data_type: TYPE_FP32
+  dims: 10
+}
+instance_group {
+  count: 5
+  kind: KIND_GPU
+}
+dynamic_batching {
+}

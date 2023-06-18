@@ -2,8 +2,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
-	"math/rand"
+	"os"
 
 	"github.com/hibiken/asynq"
 
@@ -28,7 +29,12 @@ func runProducer(redisAddr string) error {
 	client := asynq.NewClient(asynq.RedisClientOpt{Addr: redisAddr})
 	defer client.Close()
 
-	task, err := task.NewExampleSumPayload(rand.Intn(100), rand.Intn(100))
+	img, err := loadCifarImage(1)
+	if err != nil {
+		return err
+	}
+
+	task, err := task.NewInferCifarPayload(img)
 	if err != nil {
 		return err
 	}
@@ -40,4 +46,9 @@ func runProducer(redisAddr string) error {
 	log.Printf("enqueued task: id=%s queue=%s", info.ID, info.Queue)
 
 	return nil
+}
+
+func loadCifarImage(id int) ([]byte, error) {
+	imgPath := fmt.Sprintf("data/cifar-10/train/%d.png", id)
+	return os.ReadFile(imgPath)
 }
