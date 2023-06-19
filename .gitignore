@@ -240,9 +240,5 @@ pyrightconfig.json
 
 /data/**/*.png
 /data/**/*.csv
-*.onnx
-*.plan
-*.pth
-*.pb
 /python/export
 /tmp
