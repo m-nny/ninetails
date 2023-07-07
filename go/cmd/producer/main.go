@@ -8,7 +8,7 @@ import (
 
 	"github.com/hibiken/asynq"
 
-	"github.com/m-nny/ninetails/internal/task"
+	"github.com/m-nny/ninetails/go/internal/task"
 )
 
 var redis = flag.String("redis", "localhost:6379", "Redis instance URI")

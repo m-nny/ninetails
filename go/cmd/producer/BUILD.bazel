@@ -1,20 +1,19 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_library(
-    name = "consumer_lib",
+    name = "producer_lib",
     srcs = ["main.go"],
-    importpath = "github.com/m-nny/ninetails/cmd/consumer",
+    importpath = "github.com/m-nny/ninetails/go/cmd/producer",
     visibility = ["//visibility:private"],
     deps = [
-        "//internal/task",
-        "//proto/triton/client",
+        "//go/internal/task",
         "@com_github_hibiken_asynq//:asynq",
-        "@org_golang_google_grpc//:go_default_library",
     ],
 )
 
 go_binary(
-    name = "consumer",
-    embed = [":consumer_lib"],
+    name = "producer",
+    data = ["//data:cifar10_train"],
+    embed = [":producer_lib"],
     visibility = ["//visibility:public"],
 )

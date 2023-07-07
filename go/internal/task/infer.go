@@ -9,7 +9,7 @@ import (
 
 	"github.com/hibiken/asynq"
 
-	"github.com/m-nny/ninetails/internal/utils"
+	"github.com/m-nny/ninetails/go/internal/utils"
 	triton "github.com/m-nny/ninetails/proto/triton/client"
 )
 

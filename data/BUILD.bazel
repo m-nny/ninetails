@@ -2,7 +2,7 @@ filegroup(
     name = "cifar10_train",
     srcs = [
         # TODO(m-nny): uncomment once cifar-10 is pushed to DVC from titan
-        # "cifar-10/train/1.png", 
+        # "cifar-10/train/1.png",
     ],
     visibility = ["//visibility:public"],
 )

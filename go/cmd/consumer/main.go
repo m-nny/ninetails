@@ -6,7 +6,7 @@ import (
 
 	"github.com/hibiken/asynq"
 
-	"github.com/m-nny/ninetails/internal/task"
+	"github.com/m-nny/ninetails/go/internal/task"
 	triton "github.com/m-nny/ninetails/proto/triton/client"
 
 	"google.golang.org/grpc"

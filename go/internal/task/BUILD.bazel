@@ -6,10 +6,10 @@ go_library(
         "infer.go",
         "sum.go",
     ],
-    importpath = "github.com/m-nny/ninetails/internal/task",
+    importpath = "github.com/m-nny/ninetails/go/internal/task",
     visibility = ["//:__subpackages__"],
     deps = [
-        "//internal/utils",
+        "//go/internal/utils",
         "//proto/triton/client",
         "@com_github_hibiken_asynq//:asynq",
         "@org_golang_x_exp//slices",

@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "utils",
     srcs = ["conv.go"],
-    importpath = "github.com/m-nny/ninetails/internal/utils",
+    importpath = "github.com/m-nny/ninetails/go/internal/utils",
     visibility = ["//:__subpackages__"],
 )
