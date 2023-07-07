@@ -1,9 +1,8 @@
-# exports_files(["cifar-10/train/1.png"])
-
 filegroup(
     name = "cifar10_train",
     srcs = [
-        "cifar-10/train/1.png",
+        # TODO(m-nny): uncomment once cifar-10 is pushed to DVC from titan
+        # "cifar-10/train/1.png", 
     ],
     visibility = ["//visibility:public"],
 )
